@@ -1,0 +1,28 @@
+Package: r4lexis
+Type: Package
+Title: R API for the Lexis Platform
+Version: 0.0.1
+Authors@R: c(
+     person("Tomas", "Martinovic", 
+       email = "tomas.martinovic@vsb.cz",
+       role = c("cre", "aut"),
+       comment = c(ORCID = "0000-0002-0132-1434")),
+     person("VSB - Technical University of Ostrava",
+       role = c("cph", "fnd")))
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: This package contains functions for interaction
+    with the LEXIS Platform. See docs.lexis.tech for more info.
+License: MIT + file LICENSE
+Imports:
+   curl,
+   fs,
+   httpuv,
+   httr2,
+   purrr,
+   stringr,
+   tibble,
+   lubridate,
+   rtus
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
