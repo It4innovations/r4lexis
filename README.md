@@ -3,5 +3,5 @@
 ## Installation
 
 ```r
-remotes::install_git("https://github.com/It4innovations/r4lexis")
+remotes::install_github("It4innovations/r4lexis")
 ```
