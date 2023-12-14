@@ -19,9 +19,11 @@ get_lexis_oauth_token <- function(
   client_secret = httr2::obfuscated(
     "sis6S3epq7IKIG6g9kbg-jVfNlJVBk1f5X66fWyQU-SPiZiqSNOKKR2tbhmzs69u"
   ),
-  host_name = "localhost",
-                                  host_ip = "127.0.0.1",
-                                  port = httpuv::randomPort()) {
+  # host_name = "localhost",
+                                  # host_ip = "127.0.0.1",
+                                  # port = httpuv::randomPort()
+  redirect_uri = httr2::oauth_redirect_uri()
+  ) {
   lexis_client <- httr2::oauth_client(
     id = client_id,
     secret = client_secret,
@@ -31,9 +33,11 @@ get_lexis_oauth_token <- function(
   lexis_oauth_token <- lexis_client |>
     httr2::oauth_flow_auth_code(auth_url = "https://aai.lexis.tech/auth/realms/LEXIS_AAI/protocol/openid-connect/auth",
                                 scope = c("openid"),
-                                host_name = host_name,
-                                host_ip = host_ip,
-                                port = port)
+                                # host_name = host_name,
+                                # host_ip = host_ip,
+                                # port = port
+                                redirect_uri = paste0(redirect_uri, ":8468")
+                                )
 
   return(lexis_oauth_token)
 }
